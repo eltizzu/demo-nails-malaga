@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lux Nails Málaga — Centro de Uñas y Belleza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #c0667a;
+  --rose-light: #d4849a;
+  --rose-pale: #fdf0f3;
+  --nude: #e8d5c4;
+  --dark: #1a0d12;
+  --text: #3a2430;
+  --muted: #9a7e88;
+  --bg: #fdfaf9;
+  --white: #ffffff;
+  --border: #ede3e8;
+  --gold: #c9a55a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Jost', sans-serif; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(253,250,249,0.96); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--dark); letter-spacing: 0.02em; }
+.nav-logo span { color: var(--rose); font-style: italic; }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { font-size: 13px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--rose); }
+.nav-cta {
+  background: var(--rose); color: white; padding: 10px 22px;
+  border-radius: 30px; font-size: 13px; font-weight: 600;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--rose-light); }
+@media(max-width: 640px) { .nav-links { display: none; } }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #1a0d12 0%, #2a1520 40%, #1a1030 100%);
+  display: flex; align-items: center;
+  padding: 100px 32px 60px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(192,102,122,0.25) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: 40px; left: -40px;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(201,165,90,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; width: 100%; }
+@media(max-width: 720px) { .hero-inner { grid-template-columns: 1fr; } }
+.hero-eyebrow {
+  font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--rose-light); font-weight: 500; margin-bottom: 20px;
+}
+.hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 600; color: white; line-height: 1.15; margin-bottom: 20px; }
+.hero h1 em { font-style: italic; color: var(--rose-light); }
+.hero p { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 36px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-rose {
+  background: var(--rose); color: white; padding: 14px 28px;
+  border-radius: 30px; font-size: 14px; font-weight: 600;
+  transition: background 0.2s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-rose:hover { background: var(--rose-light); }
+.btn-nude {
+  background: transparent; color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.2); padding: 14px 28px;
+  border-radius: 30px; font-size: 14px; font-weight: 500;
+  transition: all 0.2s;
+}
+.btn-nude:hover { background: rgba(255,255,255,0.08); }
+
+/* Hero right panel */
+.hero-panel {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.hero-box {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px; padding: 24px 20px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  backdrop-filter: blur(8px); transition: background 0.2s;
+}
+.hero-box:hover { background: rgba(255,255,255,0.08); }
+.hero-box-icon { font-size: 28px; margin-bottom: 10px; }
+.hero-box h4 { font-size: 14px; font-weight: 600; color: white; margin-bottom: 4px; font-family: 'Playfair Display', serif; }
+.hero-box p { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+/* SERVICES */
+.services { padding: 80px 0; background: var(--white); }
+.section-label-rose { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); font-weight: 600; margin-bottom: 12px; }
+.section-title-play { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 600; color: var(--dark); margin-bottom: 16px; }
+.section-sub { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+.section-header { margin-bottom: 48px; }
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.svc-card {
+  border: 1px solid var(--border); border-radius: 20px; padding: 32px 24px; text-align: center;
+  transition: all 0.25s; cursor: default;
+}
+.svc-card:hover { border-color: var(--rose); box-shadow: 0 8px 32px rgba(192,102,122,0.12); transform: translateY(-3px); }
+.svc-emoji { font-size: 36px; margin-bottom: 16px; display: block; }
+.svc-card h3 { font-size: 17px; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+.svc-card .price { font-size: 22px; font-weight: 600; color: var(--rose); font-family: 'Playfair Display', serif; margin-bottom: 10px; }
+.svc-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* GALLERY */
+.gallery { padding: 80px 0; background: var(--rose-pale); }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+@media(max-width: 480px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: 16px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; transition: transform 0.3s;
+}
+.gallery-item:hover { transform: scale(1.02); }
+.gallery-inner {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px;
+}
+.gallery-item span { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+
+/* WHY US */
+.why-us { padding: 80px 0; background: var(--white); }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 48px; }
+.why-item { text-align: center; padding: 28px 20px; }
+.why-icon {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--rose-pale);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px; font-size: 24px;
+}
+.why-item h4 { font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 8px; font-family: 'Playfair Display', serif; }
+.why-item p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* BOOKING CTA */
+.cta { padding: 80px 32px; background: linear-gradient(135deg, #1a0d12 0%, #2d1040 100%); text-align: center; }
+.cta h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); color: white; margin-bottom: 16px; }
+.cta p { color: rgba(255,255,255,0.55); font-size: 1rem; margin-bottom: 36px; }
+
+/* TESTIMONIALS */
+.testimonials { padding: 80px 0; background: var(--bg); }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 48px; }
+.testi-card { background: var(--white); border-radius: 20px; padding: 28px; border: 1px solid var(--border); }
+.testi-stars { font-size: 14px; margin-bottom: 14px; }
+.testi-text { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+.testi-author { font-size: 13px; font-weight: 700; color: var(--dark); }
+.testi-detail { font-size: 12px; color: var(--muted); }
+
+/* CONTACT */
+.contact { padding: 80px 0; background: var(--white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+@media(max-width: 640px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-info-card { background: linear-gradient(135deg, #1a0d12 0%, #2a1520 100%); border-radius: 20px; padding: 40px; color: white; }
+.contact-info-card h3 { font-size: 24px; margin-bottom: 28px; }
+.ci-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+.ci-icon { font-size: 20px; margin-top: 2px; }
+.ci-row p { font-size: 14px; color: rgba(255,255,255,0.6); }
+.ci-row strong { color: white; display: block; margin-bottom: 2px; }
+.hours-card { background: var(--rose-pale); border-radius: 20px; padding: 32px; }
+.hours-card h4 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--dark); margin-bottom: 20px; }
+.hours-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.hours-row:last-child { border-bottom: none; }
+.hours-row strong { color: var(--dark); }
+.hours-row span { color: var(--muted); }
+
+/* FOOTER */
+footer { background: var(--dark); padding: 28px; text-align: center; }
+footer p { font-size: 12px; color: rgba(255,255,255,0.3); }
+footer .fl { font-family: 'Playfair Display', serif; font-size: 18px; color: white; margin-bottom: 8px; }
+footer .fl span { color: var(--rose); font-style: italic; }
+
+/* WA FLOAT */
+.wa-float {
+  position: fixed; bottom: 24px; right: 24px; z-index: 200;
+  background: #25d366; color: white; width: 54px; height: 54px;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5); transition: transform 0.2s;
+}
+.wa-float:hover { transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Lux<span>Nails</span></div>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://wa.me/34600000000" class="nav-cta">Reservar cita</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Centro de uñas · Málaga</p>
+      <h1>Arte en<br>cada<br><em>uña</em></h1>
+      <p>Manicura, pedicura, uñas acrílicas, gel y nail art. Técnicas premium con productos de calidad en un espacio pensado para que te sientas especial.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/34600000000" class="btn-rose">✨ Reservar cita</a>
+        <a href="#servicios" class="btn-nude">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-box">
+        <div class="hero-box-icon">💅</div>
+        <h4>Manicura Gel</h4>
+        <p>Larga duración. Hasta 3 semanas perfectas</p>
+      </div>
+      <div class="hero-box">
+        <div class="hero-box-icon">✨</div>
+        <h4>Nail Art</h4>
+        <p>Diseños únicos a mano. Tu estilo, tu diseño</p>
+      </div>
+      <div class="hero-box">
+        <div class="hero-box-icon">🌸</div>
+        <h4>Acrílicas</h4>
+        <p>Extensiones premium. Natural o coloridas</p>
+      </div>
+      <div class="hero-box">
+        <div class="hero-box-icon">🦶</div>
+        <h4>Pedicura</h4>
+        <p>Tratamiento completo con esmaltado duradero</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label-rose">Nuestros servicios</div>
+      <h2 class="section-title-play">Todo lo que necesitas</h2>
+      <p class="section-sub">Trabajamos con marcas de primera calidad para garantizar resultados duraderos y un acabado perfecto.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <span class="svc-emoji">💅</span>
+        <h3>Manicura Express</h3>
+        <div class="price">desde 12€</div>
+        <p>Lima, cutículas y esmaltado clásico. Para el día a día.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">✨</span>
+        <h3>Manicura Gel/Semipermanente</h3>
+        <div class="price">desde 25€</div>
+        <p>Duración de 2 a 3 semanas sin astillados. Gran variedad de colores.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">🌟</span>
+        <h3>Uñas Acrílicas</h3>
+        <div class="price">desde 40€</div>
+        <p>Extensiones resistentes. Natural, almendra, stiletto o cuadradas.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">🎨</span>
+        <h3>Nail Art</h3>
+        <div class="price">desde 5€</div>
+        <p>Diseños a mano: flores, geometría, francesa, degradado, glitter y más.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">🦶</span>
+        <h3>Pedicura Completa</h3>
+        <div class="price">desde 30€</div>
+        <p>Baño, exfoliación, corte, lima y esmaltado. Relax total para tus pies.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-emoji">💗</span>
+        <h3>Pack Novia/Evento</h3>
+        <div class="price">desde 65€</div>
+        <p>Manicura + pedicura completa con nail art personalizado para tu gran día.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label-rose">Portafolio</div>
+      <h2 class="section-title-play">Nuestros trabajos</h2>
+      <p class="section-sub">Diseños únicos creados en nuestro estudio. Cada trabajo es una pieza de arte.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" style="background: linear-gradient(135deg, #2a0f1a 0%, #3d1030 100%);">
+        <div class="gallery-inner">
+          <span style="font-size:32px;">💅</span>
+          <span style="color:rgba(255,255,255,0.4);">Nail Art Floral</span>
+        </div>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #1a1020 0%, #2a0a28 100%);">
+        <div class="gallery-inner">
+          <span style="font-size:32px;">✨</span>
+          <span style="color:rgba(255,255,255,0.4);">French Glitter</span>
+        </div>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #2a1510 0%, #3d2010 100%);">
+        <div class="gallery-inner">
+          <span style="font-size:32px;">🌸</span>
+          <span style="color:rgba(255,255,255,0.4);">Nude Acrílicas</span>
+        </div>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #101a2a 0%, #0a1a30 100%);">
+        <div class="gallery-inner">
+          <span style="font-size:32px;">💎</span>
+          <span style="color:rgba(255,255,255,0.4);">Chrome Effect</span>
+        </div>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #1a2010 0%, #203010 100%);">
+        <div class="gallery-inner">
+          <span style="font-size:32px;">🍃</span>
+          <span style="color:rgba(255,255,255,0.4);">Diseño Botánico</span>
+        </div>
+      </div>
+      <div class="gallery-item" style="background: linear-gradient(135deg, #201010 0%, #301520 100%);">
+        <div class="gallery-inner">
+          <span style="font-size:32px;">🎨</span>
+          <span style="color:rgba(255,255,255,0.4);">Ombre Degradado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-us">
+  <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-label-rose">Por qué elegir LuxNails</div>
+      <h2 class="section-title-play">Experiencia que se nota</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">💎</div>
+        <h4>Productos Premium</h4>
+        <p>Solo trabajamos con marcas certificadas: OPI, Gelish, CND. Sin comprometer la salud de tus uñas.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🌟</div>
+        <h4>+5 años de experiencia</h4>
+        <p>Más de 5 años perfeccionando técnicas. Cada temporada nos formamos en las últimas tendencias.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🌸</div>
+        <h4>Higiene total</h4>
+        <p>Esterilización completa entre cada cliente. Material desechable en cada servicio.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⏰</div>
+        <h4>Puntualidad garantizada</h4>
+        <p>Respetamos tu tiempo. Citas precisas sin esperas innecesarias.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-label-rose">Opiniones</div>
+      <h2 class="section-title-play">Lo que dicen nuestras clientas</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars" style="color:#f59e0b;">★★★★★</div>
+        <p class="testi-text">"El mejor sitio que he encontrado en Málaga. Me hacen diseños únicos y duran muchísimo. Llevo 2 años yendo y nunca me han fallado."</p>
+        <p class="testi-author">Sofía R.</p>
+        <p class="testi-detail">Cliente habitual · Nail Art</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars" style="color:#f59e0b;">★★★★★</div>
+        <p class="testi-text">"Me hicieron las uñas para mi boda y quedaron perfectas. El pack novia vale muchísimo la pena. La atención es increíble."</p>
+        <p class="testi-author">Carmen M.</p>
+        <p class="testi-detail">Pack Novia</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars" style="color:#f59e0b;">★★★★★</div>
+        <p class="testi-text">"Vine con las uñas destrozadas y salí con unas manos de revista. La manicura gel me dura 3 semanas sin perder el brillo."</p>
+        <p class="testi-author">Ana P.</p>
+        <p class="testi-detail">Manicura Semipermanente</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>¿Lista para tu nuevo look?</h2>
+  <p>Reserva tu cita en menos de 1 minuto. Disponibilidad esta semana.</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <a href="https://wa.me/34600000000" class="btn-rose">💬 Reservar por WhatsApp</a>
+    <a href="tel:+34600000000" class="btn-nude">📞 Llamar ahora</a>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label-rose">Dónde encontrarnos</div>
+      <h2 class="section-title-play">Visítanos en Málaga</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-card">
+        <h3>Lux Nails Málaga</h3>
+        <div class="ci-row">
+          <div class="ci-icon">📍</div>
+          <div><strong>Dirección</strong><p>Calle Granada 45, Málaga Centro</p></div>
+        </div>
+        <div class="ci-row">
+          <div class="ci-icon">📱</div>
+          <div><strong>WhatsApp / Teléfono</strong><p>+34 600 000 000</p></div>
+        </div>
+        <div class="ci-row">
+          <div class="ci-icon">📸</div>
+          <div><strong>Instagram</strong><p>@luxnails.malaga</p></div>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="https://wa.me/34600000000" class="btn-rose" style="display:block;text-align:center;padding:14px;">Reservar ahora</a>
+        </div>
+      </div>
+      <div class="hours-card">
+        <h4>Horario de apertura</h4>
+        <div class="hours-row"><span>Lunes</span><strong>Cerrado</strong></div>
+        <div class="hours-row"><span>Martes – Viernes</span><strong>10:00 – 20:00</strong></div>
+        <div class="hours-row"><span>Sábados</span><strong>10:00 – 18:00</strong></div>
+        <div class="hours-row"><span>Domingos</span><strong>Bajo cita previa</strong></div>
+        <div style="margin-top: 24px; padding: 16px; background: white; border-radius: 12px;">
+          <p style="font-size:14px; color: var(--muted);">💡 <strong>Consejo:</strong> Reserva con al menos 24h de antelación para asegurar tu horario preferido, especialmente los fines de semana.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="fl">Lux<span>Nails</span></p>
+  <p>&copy; 2026 LuxNails Málaga · Centro de Uñas y Belleza</p>
+</footer>
+
+<a href="https://wa.me/34600000000" class="wa-float">
+  <svg viewBox="0 0 24 24" fill="white" width="28" height="28">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+  </svg>
+</a>
+
+</body>
+</html>
